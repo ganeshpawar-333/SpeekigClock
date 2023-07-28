@@ -1,6 +1,5 @@
 package com.org.test.exception.handler;
 
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -20,6 +19,7 @@ public class SpeakingClockExceptionHandler {
         logger.error("Generic Error", ex);
         return new ResponseEntity("Something went wrong.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
     @ExceptionHandler(value = DateTimeParseException.class)
     public final ResponseEntity<String> handleDateTimeParseException(Exception ex) {
         logger.error("Something wrong with Datetime parsing", ex);

@@ -15,12 +15,12 @@ public class SpeakingClockController {
     private SpeakingClockService speakingClockService;
 
     @GetMapping("/currentTimeWords")
-    public String getCurentTimeInWords(){
+    public String getCurentTimeInWords() {
         return speakingClockService.getCurrentTimeInWords("");
     }
 
     @GetMapping("/words/time/{time}")
-    public String getTimeInWords(@PathVariable("time") String time){
+    public String getTimeInWords(@PathVariable("time") String time) {
         return speakingClockService.getCurrentTimeInWords(time);
     }
 

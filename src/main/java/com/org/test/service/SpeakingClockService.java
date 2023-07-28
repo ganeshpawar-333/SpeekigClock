@@ -10,14 +10,14 @@ import java.time.format.DateTimeFormatter;
 @Service
 public class SpeakingClockService {
 
-    public String getCurrentTimeInWords(String time){
+    public String getCurrentTimeInWords(String time) {
 
         StringBuilder sb = new StringBuilder();
 
         ValueConverters valueConverters = ValueConverters.ENGLISH_INTEGER;
         int hour = 0;
         int min = 0;
-        if(!StringUtils.isEmpty(time)){
+        if (!StringUtils.isEmpty(time)) {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
             LocalTime localTime = LocalTime.from(formatter.parse(time));
@@ -29,9 +29,9 @@ public class SpeakingClockService {
             min = localTime.getMinute();
         }
         sb = sb.append("It's ");
-        if(hour == 12 && min == 0){
+        if (hour == 12 && min == 0) {
             sb = sb.append("Midday");
-        } else if(hour == 0 && min == 0){
+        } else if (hour == 0 && min == 0) {
             sb = sb.append("Midnight");
         } else {
             sb = sb.append(valueConverters.asWords(hour))
