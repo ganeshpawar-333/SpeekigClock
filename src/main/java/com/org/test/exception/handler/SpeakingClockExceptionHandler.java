@@ -17,12 +17,12 @@ public class SpeakingClockExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public final ResponseEntity<String> handleGenericException(Exception ex) {
         logger.error("Generic Error", ex);
-        return new ResponseEntity("Something went wrong.", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity("Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(value = DateTimeParseException.class)
     public final ResponseEntity<String> handleDateTimeParseException(Exception ex) {
-        logger.error("Something wrong with Datetime parsing", ex);
-        return new ResponseEntity("Something went wonrg with Date Time Conversion.", HttpStatus.INTERNAL_SERVER_ERROR);
+        logger.error("Datetime parsing Exception", ex);
+        return new ResponseEntity("Error in Date Time Conversion.", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
