@@ -18,10 +18,10 @@ public class SpeakingClockServiceImpl implements SpeakingClockService {
         int hour = 0;
         int min = 0;
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-            LocalTime localTime = LocalTime.from(formatter.parse(time));
-            hour = localTime.getHour();
-            min = localTime.getMinute();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime localTime = LocalTime.from(formatter.parse(time));
+        hour = localTime.getHour();
+        min = localTime.getMinute();
         sb = sb.append("It's ");
         if (hour == 12 && min == 0) {
             sb = sb.append("Midday");
